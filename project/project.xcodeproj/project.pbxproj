@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE3D094A287C508600C9F298 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D0949287C508600C9F298 /* StatisticViewController.swift */; };
+		CE7B1D2C287A1B4B003058A8 /* RepetitionWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B1D2B287A1B4B003058A8 /* RepetitionWordsViewController.swift */; };
+		CE7B1D2E287A1B9C003058A8 /* LearningWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B1D2D287A1B9C003058A8 /* LearningWordsViewController.swift */; };
+		CED39902287A84F700AB231B /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED39901287A84F700AB231B /* CardsView.swift */; };
 
 
 		4D2F2147287734070081944B /* AddWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F2146287734070081944B /* AddWordsViewController.swift */; };
@@ -39,6 +43,12 @@
 
 /* Begin PBXFileReference section */
 		4D2F2146287734070081944B /* AddWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordsViewController.swift; sourceTree = "<group>"; };
+
+		CE3D0949287C508600C9F298 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		CE7B1D2B287A1B4B003058A8 /* RepetitionWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionWordsViewController.swift; sourceTree = "<group>"; };
+		CE7B1D2D287A1B9C003058A8 /* LearningWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningWordsViewController.swift; sourceTree = "<group>"; };
+		CED39901287A84F700AB231B /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+
 
 		3C85CE102877178D009C345E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3C85CE1228775A86009C345E /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
@@ -81,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE7B1D2A287A1A66003058A8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE7B1D2B287A1B4B003058A8 /* RepetitionWordsViewController.swift */,
+				CE7B1D2D287A1B9C003058A8 /* LearningWordsViewController.swift */,
+				CE3D0949287C508600C9F298 /* StatisticViewController.swift */,
+			);
+			path = ViewControllers;
 		DD4BBD4F287AEC980020A5CB /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +206,9 @@
 		DDA6AD1C2876E1750058E5D2 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
+				CE7B1D2A287A1A66003058A8 /* ViewControllers */,
 				DDA6AD242876E2E90058E5D2 /* LearningStoryboard.storyboard */,
+				CED39901287A84F700AB231B /* CardsView.swift */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -299,7 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
+				CE7B1D2C287A1B4B003058A8 /* RepetitionWordsViewController.swift in Sources */,
+				CED39902287A84F700AB231B /* CardsView.swift in Sources */,
+				DDA6AD002876D86F0058E5D2 /* AppDelegate.swift in Sources */,
+				CE3D094A287C508600C9F298 /* StatisticViewController.swift in Sources */,
+				CE7B1D2E287A1B9C003058A8 /* LearningWordsViewController.swift in Sources */,
 				3C85CE1528781862009C345E /* DictViewController.swift in Sources */,
 				DDA6AD002876D86F0058E5D2 /* AppDelegate.swift in Sources */,
 				3C85CE1328775A86009C345E /* WordTableViewCell.swift in Sources */,
