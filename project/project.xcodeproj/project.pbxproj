@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE3D094A287C508600C9F298 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D0949287C508600C9F298 /* StatisticViewController.swift */; };
+		CE7B1D2C287A1B4B003058A8 /* RepetitionWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B1D2B287A1B4B003058A8 /* RepetitionWordsViewController.swift */; };
+		CE7B1D2E287A1B9C003058A8 /* LearningWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B1D2D287A1B9C003058A8 /* LearningWordsViewController.swift */; };
+		CED39902287A84F700AB231B /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED39901287A84F700AB231B /* CardsView.swift */; };
 		DDA6AD002876D86F0058E5D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6ACFF2876D86F0058E5D2 /* AppDelegate.swift */; };
 		DDA6AD022876D86F0058E5D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6AD012876D86F0058E5D2 /* SceneDelegate.swift */; };
 		DDA6AD072876D86F0058E5D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA6AD052876D86F0058E5D2 /* Main.storyboard */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE3D0949287C508600C9F298 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		CE7B1D2B287A1B4B003058A8 /* RepetitionWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionWordsViewController.swift; sourceTree = "<group>"; };
+		CE7B1D2D287A1B9C003058A8 /* LearningWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningWordsViewController.swift; sourceTree = "<group>"; };
+		CED39901287A84F700AB231B /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		DDA6ACFC2876D86F0058E5D2 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA6ACFF2876D86F0058E5D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA6AD012876D86F0058E5D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE7B1D2A287A1A66003058A8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE7B1D2B287A1B4B003058A8 /* RepetitionWordsViewController.swift */,
+				CE7B1D2D287A1B9C003058A8 /* LearningWordsViewController.swift */,
+				CE3D0949287C508600C9F298 /* StatisticViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		DDA6ACF32876D86F0058E5D2 = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +148,9 @@
 		DDA6AD1C2876E1750058E5D2 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
+				CE7B1D2A287A1A66003058A8 /* ViewControllers */,
 				DDA6AD242876E2E90058E5D2 /* LearningStoryboard.storyboard */,
+				CED39901287A84F700AB231B /* CardsView.swift */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -219,7 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7B1D2C287A1B4B003058A8 /* RepetitionWordsViewController.swift in Sources */,
+				CED39902287A84F700AB231B /* CardsView.swift in Sources */,
 				DDA6AD002876D86F0058E5D2 /* AppDelegate.swift in Sources */,
+				CE3D094A287C508600C9F298 /* StatisticViewController.swift in Sources */,
+				CE7B1D2E287A1B9C003058A8 /* LearningWordsViewController.swift in Sources */,
 				DDA6AD022876D86F0058E5D2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
