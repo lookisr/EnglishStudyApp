@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C85CE112877178D009C345E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85CE102877178D009C345E /* TableViewController.swift */; };
+		3C85CE1328775A86009C345E /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85CE1228775A86009C345E /* WordTableViewCell.swift */; };
+		3C85CE1528781862009C345E /* DictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85CE1428781862009C345E /* DictViewController.swift */; };
+		3CD381CD28782515004F1F05 /* DictTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD381CB28782515004F1F05 /* DictTableViewCell.swift */; };
+		3CD381D02878401F004F1F05 /* DictWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD381CF2878401F004F1F05 /* DictWord.swift */; };
 		DDA6AD002876D86F0058E5D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6ACFF2876D86F0058E5D2 /* AppDelegate.swift */; };
 		DDA6AD022876D86F0058E5D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6AD012876D86F0058E5D2 /* SceneDelegate.swift */; };
 		DDA6AD072876D86F0058E5D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA6AD052876D86F0058E5D2 /* Main.storyboard */; };
@@ -20,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C85CE102877178D009C345E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		3C85CE1228775A86009C345E /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
+		3C85CE1428781862009C345E /* DictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictViewController.swift; sourceTree = "<group>"; };
+		3CD381CB28782515004F1F05 /* DictTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictTableViewCell.swift; sourceTree = "<group>"; };
+		3CD381CF2878401F004F1F05 /* DictWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictWord.swift; sourceTree = "<group>"; };
 		DDA6ACFC2876D86F0058E5D2 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA6ACFF2876D86F0058E5D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA6AD012876D86F0058E5D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +133,11 @@
 			isa = PBXGroup;
 			children = (
 				DDA6AD222876E2CF0058E5D2 /* DictionaryStoryboard.storyboard */,
+				3C85CE102877178D009C345E /* TableViewController.swift */,
+				3C85CE1228775A86009C345E /* WordTableViewCell.swift */,
+				3C85CE1428781862009C345E /* DictViewController.swift */,
+				3CD381CB28782515004F1F05 /* DictTableViewCell.swift */,
+				3CD381CF2878401F004F1F05 /* DictWord.swift */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -219,7 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C85CE1528781862009C345E /* DictViewController.swift in Sources */,
 				DDA6AD002876D86F0058E5D2 /* AppDelegate.swift in Sources */,
+				3C85CE1328775A86009C345E /* WordTableViewCell.swift in Sources */,
+				3CD381D02878401F004F1F05 /* DictWord.swift in Sources */,
+				3CD381CD28782515004F1F05 /* DictTableViewCell.swift in Sources */,
+				3C85CE112877178D009C345E /* TableViewController.swift in Sources */,
 				DDA6AD022876D86F0058E5D2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +396,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -403,6 +424,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
