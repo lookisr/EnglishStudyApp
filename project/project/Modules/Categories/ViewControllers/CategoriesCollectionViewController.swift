@@ -11,53 +11,55 @@ private let reuseIdentifier = "Cell"
 
 class CategoriesCollectionViewController: UICollectionViewController {
     @IBOutlet weak var addItem: UIBarButtonItem!
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
     var newCategoryName: String = ""
     @IBAction func cancel(segue:UIStoryboardSegue) {
     }
     @IBAction func done(segue:UIStoryboardSegue) {
         let NewCategoryViewController = segue.source as! NewCategoryViewController
         newCategoryName = NewCategoryViewController.newCategory
-//        DataBase.addCategory(newCategoryName)
+        DataBase.addCategory(newCategoryName)
+        listOfCategories = DataBase.getCategories()
         collectionView.reloadData()
         
     }
-    var listOfCategories = [
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-        Category(words: ["Sun-Солнце", "Wind-Ветер", "Moon-Луна"], categoryName: "Basic Words"),
-    ]
+    @IBAction func deleteItem(_ sender: Any) {
+        if let selectedCells = collectionView.indexPathsForSelectedItems {
+              let items = selectedCells.map { $0.item }.sorted().reversed()
+              for item in items {
+                  DataBase.removeCategory(item)
+                  listOfCategories = DataBase.getCategories()
+              }
+              collectionView.deleteItems(at: selectedCells)
+              deleteButton.isEnabled = false
+            }
+    }
+
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        collectionView.allowsMultipleSelection = editing
+        let indexPaths = collectionView.indexPathsForVisibleItems
+        for indexPath in indexPaths {
+            let cell = collectionView.cellForItem(at: indexPath) as! CellWordsViewCell
+            cell.isInEditingMode = editing
+        }
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if !isEditing {
+            deleteButton.isEnabled = false
+        } else {
+            deleteButton.isEnabled = true
+        }
+    }
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let selectedItems = collectionView.indexPathsForSelectedItems, selectedItems.count == 0 {
+            deleteButton.isEnabled = false
+        }
+    }
+    var listOfCategories = DataBase.getCategories()
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.89, green: 0.95, blue: 0.96, alpha: 1.00)
         navigationController?.navigationBar.layer.cornerRadius = 20
@@ -80,6 +82,7 @@ class CategoriesCollectionViewController: UICollectionViewController {
         cell.wordsAmount.text = String(listOfCategories[indexPath.row].words.count)
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.masksToBounds = true
+        cell.isInEditingMode = isEditing
         return cell
     }
 }
