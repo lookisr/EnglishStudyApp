@@ -67,18 +67,10 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMz-QM-ygx">
-                                            <rect key="frame" x="63" y="84" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.89019608500000003" green="0.91372549530000002" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <outlet property="checkLabel" destination="cMz-QM-ygx" id="7Xs-hE-EAd"/>
                                     <outlet property="nameLabel" destination="thF-mg-RZ2" id="v5s-bc-yCR"/>
                                     <outlet property="wordsAmount" destination="gzg-kr-j0B" id="hfc-dI-w2z"/>
                                 </connections>
@@ -90,14 +82,6 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Категории" largeTitleDisplayMode="always" id="uvM-A3-mSX">
-                        <leftBarButtonItems>
-                            <barButtonItem image="pencil" catalog="system" style="plain" id="QaX-mB-zNM"/>
-                            <barButtonItem enabled="NO" image="trash" catalog="system" style="plain" id="Z1F-cQ-ba3">
-                                <connections>
-                                    <action selector="deleteItem:" destination="5Dd-Sf-OYl" id="j5w-TR-D3z"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="kEI-WF-I28">
                             <connections>
                                 <action selector="addItemDidTap:" destination="5Dd-Sf-OYl" id="lLP-YO-wMB"/>
@@ -107,7 +91,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addItem" destination="kEI-WF-I28" id="Y9B-c5-sew"/>
-                        <outlet property="deleteButton" destination="Z1F-cQ-ba3" id="3ox-Se-10f"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGF-La-5qk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -172,8 +155,6 @@
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <image name="background.png" width="750" height="1624"/>
         <image name="cell.png" width="222" height="232"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
