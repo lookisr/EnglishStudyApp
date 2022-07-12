@@ -8,15 +8,12 @@
 import UIKit
 import Foundation
 
-
-
-
-
 class RepetitionWordsViewController: UIViewController {
+    var previousFrame: CGRect?
     var categoryIndex: Int?
     private var currentId = 0
     private var offset = CGSize.zero
-    private  var showingTranslation = false
+    private  var showingTranslation: Bool?
     private var countCorrect = 0
     private var countIncorrect = 0
     private var incorrectWords = [String]()
@@ -33,7 +30,7 @@ class RepetitionWordsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        previousFrame = self.cardView.frame
         againButton.isHidden = true
         currentId = 0
         offset = CGSize.zero
@@ -53,51 +50,25 @@ class RepetitionWordsViewController: UIViewController {
         
         wordLabel.text = userCards[currentId].word
         cardNumberLabel.text = "\(currentId+1)/\(userCards.count)"
-        
+        checkLabel.text = "tap to check"
+        checkLabel.isHidden = false
     }
-    
-//    func setData<T: Encodable>(customData: T, key: String) {
-//        do {
-//            // Create JSON Encoder
-//            let encoder = JSONEncoder()
-//
-//            // Encode Note
-//            let data = try encoder.encode(customData)
-//
-//            // Write/Set Data
-//            UserDefaults.standard.set(data, forKey: key)
-//
-//        } catch {
-//            print("Unable to Encode Note (\(error))")
-//        }
-//    }
-//
-//    func getData<T: Decodable>(customData: T, key: String) -> T? {
-//        if let data = UserDefaults.standard.data(forKey: key) {
-//            do {
-//                // Create JSON Decoder
-//                let decoder = JSONDecoder()
-//
-//                // Decode Note
-//                let userData = try decoder.decode(T.self, from: data)
-//                return userData
-//            } catch {
-//                print("Unable to Decode Note (\(error))")
-//            }
-//        }
-//        return nil
-//    }
     
     
     @objc func handleSwipe() {
-        let duration = 1.0
-        let previousFrame = self.cardView.frame
-        UIView.animate(withDuration: duration, animations: {
-            self.cardView.transform = CGAffineTransform(translationX: -self.cardView.frame.width * 2 , y: 0)
-        }
-        )
+        UIView.animate(
+                   withDuration: 1,
+                   delay: 0.0,
+                   options: .curveLinear,
+                   animations: {
+
+                       self.cardView?.frame.origin.x = -self.previousFrame!.width*2
+
+               }) { (completed) in
+
+               }
         
-        cardView.frame = previousFrame
+        cardView.frame = previousFrame!
         showingTranslation = false
         currentId+=1
         
@@ -106,11 +77,12 @@ class RepetitionWordsViewController: UIViewController {
         
         self.incorrectButton.isHidden = true
         self.correctButton.isHidden = true
-        
+        checkLabel.isHidden = false
+        showingTranslation = false
     }
     
     @objc func handleTap() {
-        if showingTranslation {
+        if showingTranslation! {
             wordLabel.text = userCards[currentId].word
             showingTranslation = false
             checkLabel.isHidden = false
@@ -128,8 +100,8 @@ class RepetitionWordsViewController: UIViewController {
                 self.correctButton.isHidden = false
             })
             
-            showingTranslation = true
             checkLabel.isHidden = true
+            showingTranslation = true
         }
         CardsView.transition(with: cardView, duration: 1, options: .transitionFlipFromRight, animations: nil, completion: nil)
     }

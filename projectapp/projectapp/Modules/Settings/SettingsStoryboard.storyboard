@@ -8,10 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Settings-->
         <scene sceneID="Y0A-3u-xfU">
             <objects>
                 <navigationController id="TPv-fd-rQR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="Mask group" id="Y3A-LR-yjh" userLabel="Settings"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Yn-Iw-CHo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -452,6 +454,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Mask group" width="31" height="31"/>
         <image name="Rectangle 6" width="375" height="55"/>
         <image name="background" width="828" height="254"/>
         <systemColor name="systemBackgroundColor">

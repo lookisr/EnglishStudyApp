@@ -8,6 +8,7 @@
 import UIKit
 
 class LearningWordsViewController: UIViewController {
+    var previousFrame: CGRect?
     var categoryIndex: Int?
     private var currentId = 0
     private var offset = CGSize.zero
@@ -21,11 +22,10 @@ class LearningWordsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        previousFrame = self.cardView.frame
         currentId = 0
         offset = CGSize.zero
         showingTranslation = false
-        print(categoryIndex)
         againButton.isHidden = true
         cardView.dropShadow()
 
@@ -46,25 +46,8 @@ class LearningWordsViewController: UIViewController {
         
     }
     
-    //    func getData<T: Decodable>(customData: T, key: String) -> T? {
-    //        if let data = UserDefaults.standard.data(forKey: key) {
-    //            do {
-    //                // Create JSON Decoder
-    //                let decoder = JSONDecoder()
-    //
-    //                // Decode Note
-    //                let userData = try decoder.decode(T.self, from: data)
-    //                return userData
-    //            } catch {
-    //                print("Unable to Decode Note (\(error))")
-    //            }
-    //        }
-    //        return nil
-    //    }
-    
     @objc func handleSwipe(_ gesture : UISwipeGestureRecognizer) {
         
-        let duration = 1.0
         let direction = gesture.direction
         let previousFrame = self.cardView.frame
         
@@ -74,29 +57,44 @@ class LearningWordsViewController: UIViewController {
         else {
             if direction == .left {
                 
-                UIView.animate(withDuration: duration, animations: {
-                    self.cardView.transform = CGAffineTransform(translationX: -self.cardView.frame.width * 2 , y: 0)
-                }
-                )
+                UIView.animate(
+                           withDuration: 1,
+                           delay: 0.0,
+                           options: .curveLinear,
+                           animations: {
+
+                               self.cardView?.frame.origin.x = -self.previousFrame!.width*2
+
+                       }) { (completed) in
+
+                       }
                 
                 cardView.frame = previousFrame
                 showingTranslation = false
                 currentId+=1
-                
+                translateLabel.isHidden = false
                 wordLabel.text = userCards[currentId].word
                 cardNumberLabel.text = "\(currentId+1)/\(userCards.count)"
                 
             }
             if direction == .right {
-                UIView.animate(withDuration: duration, animations: {
-                    self.cardView.transform = CGAffineTransform(translationX: self.cardView.frame.width * 2, y: 0)
-                }
-                )
+                
+                UIView.animate(
+                           withDuration: 1,
+                           delay: 0.0,
+                           options: .curveLinear,
+                           animations: {
+
+                               self.cardView?.frame.origin.x = self.previousFrame!.width*2
+
+                       }) { (completed) in
+
+                       }
                 
                 cardView.frame = previousFrame
                 showingTranslation = false
                 currentId-=1
-                
+                translateLabel.isHidden = false
                 wordLabel.text = userCards[currentId].word
                 cardNumberLabel.text = "\(currentId+1)/\(userCards.count)"
             }
